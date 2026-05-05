@@ -1,6 +1,7 @@
 {
-  "name": "GeoTag SEO Pro",
-  "description": "Professional geotagging tool for local SEO optimization. Generate geolocation metadata for images and websites with a focus on search engine visibility.",
-  "requestFramePermissions": ["geolocation"],
-  "majorCapabilities": []
+  "name": "GeoStamp Pro | Remote Geotagging Engine",
+  "description": "The ultimate tool for virtual location tagging. Pin your photos to any GPS coordinate on Earth without leaving your desk. Perfect for remote work, property management, and data correction.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
 }

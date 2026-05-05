@@ -101,28 +101,25 @@ function Header() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-2' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-100 group-hover:scale-110 transition-transform">
-            <Globe className="text-white w-6 h-6" />
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-100 group-hover:scale-110 transition-transform">
+            <Globe className="text-white w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div className="flex flex-col -space-y-1">
-            <span className="text-xl font-display font-bold tracking-tight text-slate-900">GeoTag<span className="text-indigo-600">Pro</span></span>
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">SEO Engine</span>
+            <span className="text-lg sm:text-xl font-display font-bold tracking-tight text-slate-900">GeoStamp<span className="text-indigo-600">Pro</span></span>
+            <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-slate-400">Free Geotagger</span>
           </div>
         </div>
         
         <nav className="hidden md:flex items-center gap-8 text-sm font-bold text-slate-500 uppercase tracking-widest">
-          <a href="#tool" className="hover:text-indigo-600 transition-colors">Tool</a>
-          <a href="#benefits" className="hover:text-indigo-600 transition-colors">SEO Impact</a>
+          <a href="#tool" className="hover:text-indigo-600 transition-colors">Geotag Tool</a>
+          <a href="#how-to" className="hover:text-indigo-600 transition-colors">How to Geotag</a>
           <a href="#faq" className="hover:text-indigo-600 transition-colors">FAQ</a>
         </nav>
 
         <div className="flex items-center gap-4">
-          <button className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-black uppercase tracking-widest transition-all shadow-lg shadow-slate-200">
-            Sign In
-          </button>
         </div>
       </div>
     </header>
@@ -131,7 +128,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative pt-44 pb-20 overflow-hidden">
+    <section className="relative pt-32 pb-12 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-indigo-600/10 to-transparent blur-[120px] rounded-full -mt-40 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div 
@@ -142,14 +139,14 @@ function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[10px] font-black uppercase tracking-[0.2em] text-indigo-600">
             <Zap className="w-3 h-3 fill-current" />
-            Empowering 50,000+ Local Businesses Worldwide
+            100% Free Online Geotagging Tool
           </div>
-          <h1 className="text-6xl md:text-9xl font-display font-bold text-slate-900 leading-[0.85] tracking-tighter">
-            Geotag Your Photos. <br/> <span className="text-indigo-600">Win Local Search.</span>
+          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-bold text-slate-900 leading-[0.85] tracking-tighter">
+            Geotag Photos. <br/> <span className="text-indigo-600">Online & Fast.</span>
           </h1>
           <p className="text-xl text-slate-500 max-w-3xl leading-relaxed font-medium">
-            The #1 choice for SEO agencies. Embed verified GPS coordinates and professional EXIF metadata 
-            into your images to dominate Google Maps and local keyword rankings instantly.
+            Add GPS coordinates to any photo instantly. Select a location on the map and 
+            embed it into your image metadata. No downloads, no sign-ups, just free geotagging.
           </p>
           <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
             <a href="#tool" className="px-10 py-5 bg-indigo-600 text-white rounded-2xl font-black uppercase tracking-widest text-xs flex items-center gap-3 hover:bg-slate-900 transition-all shadow-2xl shadow-indigo-500/20 active:scale-95">
@@ -527,360 +524,269 @@ function GeotagTool() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-100 selection:text-indigo-900 font-sans">
-      <Header />
+    <section id="tool" className="max-w-7xl mx-auto px-4 py-12 scroll-mt-24">
+      <div className="bg-white rounded-[2.5rem] border border-slate-200 p-6 md:p-12 shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] -mr-64 -mt-64 rounded-full pointer-events-none" />
         
-        {/* Hero Section */}
-        <section className="relative pt-40 pb-24 overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-indigo-600/20 to-transparent blur-3xl rounded-full -mt-96 pointer-events-none" />
-          
-          <div className="max-w-7xl mx-auto px-4 relative">
-            <div className="text-center space-y-8 max-w-4xl mx-auto">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-xs font-black uppercase tracking-widest border border-indigo-100"
-              >
-                <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
-                The #1 Free Photo Geotagging Tool Online
-              </motion.div>
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-6xl md:text-8xl font-display font-bold tracking-tight leading-[0.9] text-slate-900"
-              >
-                Geotag Photos <span className="text-indigo-600">Instantly</span> for <span className="text-slate-900">Local SEO</span>
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed"
-              >
-                Embed GPS coordinates into your images to rank higher in Google Local results. Fast, browser-based geotagging with zero quality loss.
-              </motion.p>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-wrap items-center justify-center gap-4 pt-4"
-              >
-                <a href="#tool" className="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-all shadow-xl shadow-indigo-200 flex items-center gap-2">
-                  <Upload className="w-4 h-4" />
-                  Start Geotagging Now
-                </a>
-                <a href="#how-to" className="px-8 py-4 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-xl font-bold transition-all flex items-center gap-2 shadow-sm">
-                   Learn More
-                </a>
-              </motion.div>
+        <div className="relative grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left Column: Image Upload */}
+          <div className="space-y-8">
+            <div 
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={handleDrop}
+              className={`relative min-h-[400px] lg:min-h-[600px] rounded-3xl border-2 border-dashed transition-all flex flex-col items-center justify-center gap-4 overflow-hidden group ${image ? 'border-transparent bg-slate-50' : 'border-slate-300 hover:border-indigo-500 bg-white'}`}
+            >
+              {image ? (
+                <>
+                  <div className="w-full h-full flex items-center justify-center p-4">
+                    <img src={image} alt="Preview" className="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-xl shadow-sm" />
+                  </div>
+                  <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                    <button onClick={() => fileInputRef.current?.click()} className="p-3 bg-white text-slate-900 rounded-full hover:scale-110 transition-transform shadow-lg">
+                      <Plus className="w-5 h-5" />
+                    </button>
+                    <button onClick={reset} className="p-3 bg-red-500 text-white rounded-full hover:scale-110 transition-transform shadow-lg">
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="w-16 h-16 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 group-hover:scale-110 transition-all duration-300 shadow-sm border border-indigo-100">
+                    <Upload className="w-8 h-8" />
+                  </div>
+                  <div className="text-center px-4">
+                    <p className="text-xl font-bold text-slate-900">Drop your photo here</p>
+                    <p className="text-slate-500 text-sm mt-1 font-medium">JPEG or JPG files</p>
+                  </div>
+                  <button 
+                    onClick={() => fileInputRef.current?.click()}
+                    className="px-8 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-100 active:scale-95"
+                  >
+                    Upload Photo
+                  </button>
+                </>
+              )}
+              <input 
+                type="file" 
+                ref={fileInputRef} 
+                onChange={handleFileChange} 
+                className="hidden" 
+                accept="image/jpeg,image/jpg"
+              />
             </div>
           </div>
-        </section>
 
-        <section id="tool" className="max-w-7xl mx-auto px-4 py-24 scroll-mt-24">
-          <div className="bg-white rounded-[2.5rem] border border-slate-200 p-6 md:p-12 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] -mr-64 -mt-64 rounded-full pointer-events-none" />
-            
-            <div className="relative grid lg:grid-cols-2 gap-12 items-start">
-              {/* Left Column: Image Upload */}
-              <div className="space-y-8">
-                <div 
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={handleDrop}
-                  className={`relative min-h-[400px] lg:min-h-[600px] rounded-3xl border-2 border-dashed transition-all flex flex-col items-center justify-center gap-4 overflow-hidden group ${image ? 'border-transparent bg-slate-50' : 'border-slate-300 hover:border-indigo-500 bg-white'}`}
-                >
-                  {image ? (
-                    <>
-                      <div className="w-full h-full flex items-center justify-center p-4">
-                        <img src={image} alt="Preview" className="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-xl shadow-sm" />
-                      </div>
-                      <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                        <button onClick={() => fileInputRef.current?.click()} className="p-3 bg-white text-slate-900 rounded-full hover:scale-110 transition-transform shadow-lg">
-                          <Plus className="w-5 h-5" />
-                        </button>
-                        <button onClick={reset} className="p-3 bg-red-500 text-white rounded-full hover:scale-110 transition-transform shadow-lg">
-                          <X className="w-5 h-5" />
-                        </button>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="w-16 h-16 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 group-hover:scale-110 transition-all duration-300 shadow-sm border border-indigo-100">
-                        <Upload className="w-8 h-8" />
-                      </div>
-                      <div className="text-center px-4">
-                        <p className="text-xl font-bold text-slate-900">Drop your image here</p>
-                        <p className="text-slate-500 text-sm mt-1 font-medium">JPEG or JPG files (Max 10MB)</p>
-                      </div>
-                      <button 
-                        onClick={() => fileInputRef.current?.click()}
-                        className="px-8 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-100 active:scale-95"
-                      >
-                        Select Photo
-                      </button>
-                    </>
-                  )}
+          {/* Right Column: Controls & Metadata */}
+          <div className="space-y-6">
+            <div className="space-y-2 text-center lg:text-left">
+              <h2 className="text-4xl font-display font-bold text-slate-900 leading-tight">Edit GPS Data</h2>
+              <p className="text-slate-500 text-sm font-medium">Add locations and GPS tags to your photo.</p>
+            </div>
+
+            <div className="h-[280px] w-full rounded-2xl overflow-hidden border border-slate-200 relative shadow-inner">
+               <MapContainer 
+                 center={[coords.lat, coords.lng]} 
+                 zoom={13} 
+                 scrollWheelZoom={false}
+                 className="h-full w-full" 
+               >
+                 <TileLayer
+                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                 />
+                 <LocationMarker 
+                    position={[coords.lat, coords.lng]} 
+                    setPosition={(pos) => setCoords({ lat: pos[0], lng: pos[1] })}
+                    onSelect={handleLocationSelect}
+                    locationName={addr1}
+                 />
+                 <MapUpdater center={[coords.lat, coords.lng]} />
+               </MapContainer>
+               <div className="absolute top-4 right-4 z-[1000] bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold text-indigo-600 border border-indigo-100 shadow-sm">
+                 LIVE PRECISION MAP
+               </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Search & Sync Location</label>
+                <div className="relative group">
                   <input 
-                    type="file" 
-                    ref={fileInputRef} 
-                    onChange={handleFileChange} 
-                    className="hidden" 
-                    accept="image/jpeg,image/jpg"
+                    type="text" 
+                    placeholder="Search city, village, or landmark..."
+                    value={searchQuery} 
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-4 pr-12 py-3 text-slate-900 font-medium focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
                   />
-                </div>
-              </div>
-
-              {/* Right Column: Controls & Metadata */}
-              <div className="space-y-6">
-                <div className="space-y-2 text-center lg:text-left">
-                  <h2 className="text-4xl font-display font-bold text-slate-900 leading-tight">Geotag Data Input</h2>
-                  <p className="text-slate-500 text-sm font-medium">Add visual watermark data & professional SEO metadata.</p>
-                </div>
-
-                <div className="h-[280px] w-full rounded-2xl overflow-hidden border border-slate-200 relative shadow-inner">
-                   <MapContainer 
-                     center={[coords.lat, coords.lng]} 
-                     zoom={13} 
-                     scrollWheelZoom={false}
-                     className="h-full w-full" 
-                   >
-                     <TileLayer
-                       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                     />
-                     <LocationMarker 
-                        position={[coords.lat, coords.lng]} 
-                        setPosition={(pos) => setCoords({ lat: pos[0], lng: pos[1] })}
-                        onSelect={handleLocationSelect}
-                        locationName={addr1}
-                     />
-                     <MapUpdater center={[coords.lat, coords.lng]} />
-                   </MapContainer>
-                   <div className="absolute top-4 right-4 z-[1000] bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold text-indigo-600 border border-indigo-100 shadow-sm">
-                     LIVE PRECISION MAP
-                   </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Search & Sync Location</label>
-                    <div className="relative group">
-                      <input 
-                        type="text" 
-                        placeholder="Search city, village, or landmark..."
-                        value={searchQuery} 
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-4 pr-12 py-3 text-slate-900 font-medium focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
-                      />
-                      <button 
-                        onClick={handleSearch}
-                        disabled={isSearching}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-indigo-600 hover:bg-indigo-100 rounded-lg transition-colors disabled:opacity-50"
-                      >
-                        {isSearching ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
-                      </button>
-                    </div>
-                  </div>
-
                   <button 
-                    onClick={() => {
-                      if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition((pos) => {
-                          const lat = pos.coords.latitude;
-                          const lng = pos.coords.longitude;
-                          setCoords({ lat, lng });
-                          handleLocationSelect(lat, lng);
-                        });
-                      } else {
-                        alert("Geolocation is not supported by this browser.");
-                      }
-                    }}
-                    className="w-full flex items-center justify-center gap-2 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-indigo-600 transition-all border border-slate-200 rounded-xl hover:border-indigo-400 bg-white shadow-sm hover:shadow-md"
+                    onClick={handleSearch}
+                    disabled={isSearching}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-indigo-600 hover:bg-indigo-100 rounded-lg transition-colors disabled:opacity-50"
                   >
-                    <MapPin className="w-3 h-3" />
-                    Auto-Detect Position
+                    {isSearching ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
                   </button>
                 </div>
-
-                <div className="space-y-4">
-                   <div className="space-y-1.5">
-                      <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Address Line 1 (Main & Short)</label>
-                      <input 
-                        type="text" 
-                        placeholder="e.g. Madhupur Gaon"
-                        value={addr1} 
-                        onChange={(e) => setAddr1(e.target.value)}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
-                      />
-                   </div>
-
-                   <div className="space-y-1.5">
-                      <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Address Line 2 (Long)</label>
-                      <input 
-                        type="text" 
-                        placeholder="e.g. NH-15, Road Lalpool, Darrang"
-                        value={addr2} 
-                        onChange={(e) => setAddr2(e.target.value)}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
-                      />
-                   </div>
-
-                   <div className="space-y-1.5">
-                      <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Date and Time</label>
-                      <input 
-                        type="datetime-local" 
-                        value={customDateTime} 
-                        onChange={(e) => setCustomDateTime(e.target.value)}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-600 font-medium focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
-                      />
-                   </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                   <div className="space-y-1.5">
-                      <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Latitude</label>
-                      <input 
-                        type="number" 
-                        step="0.000001"
-                        placeholder="26.64770"
-                        value={coords.lat} 
-                        onChange={(e) => setCoords(c => ({ ...c, lat: parseFloat(e.target.value) || 0 }))}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-indigo-600 font-mono font-bold focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
-                      />
-                   </div>
-                   <div className="space-y-1.5">
-                      <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Longitude</label>
-                       <input 
-                        type="number" 
-                        step="0.000001"
-                        placeholder="92.16932"
-                        value={coords.lng} 
-                        onChange={(e) => setCoords(c => ({ ...c, lng: parseFloat(e.target.value) || 0 }))}
-                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-indigo-600 font-mono font-bold focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
-                      />
-                   </div>
-                </div>
-
-                <button 
-                  onClick={downloadGeotaggedImage}
-                  disabled={!image || isProcessing}
-                  className={`w-full py-5 rounded-2x font-bold text-lg flex items-center justify-center gap-3 transition-all ${
-                    !image 
-                    ? 'bg-slate-100 text-slate-400 cursor-not-allowed' 
-                    : success 
-                      ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-100' 
-                      : 'bg-indigo-600 text-white hover:bg-slate-900 shadow-xl shadow-indigo-100 active:scale-[0.98]'
-                  }`}
-                  style={{ borderRadius: '1.25rem' }}
-                >
-                  {isProcessing ? (
-                    <div className="w-6 h-6 border-2 border-neutral-400 border-t-white rounded-full animate-spin" />
-                  ) : success ? (
-                    <>
-                      <Check className="w-6 h-6" />
-                      Successfully Geotagged
-                    </>
-                  ) : (
-                    <>
-                      <Download className="w-6 h-6" />
-                      Geotag & Download Image
-                    </>
-                  )}
-                </button>
-
-
-                <AnimatePresence>
-                  {success && (
-                    <motion.div 
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="glass p-6 rounded-2xl border-emerald-500/20 bg-emerald-500/5 space-y-4 overflow-hidden"
-                    >
-                      <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-                        <Check className="w-4 h-4" />
-                        Internal Metadata Verified
-                      </div>
-                      <div className="grid grid-cols-1 gap-2 text-[10px] font-mono text-slate-400 uppercase">
-                        <div className="flex justify-between">
-                          <span>GPS.Latitude</span>
-                          <span className="text-emerald-600 font-bold">{coords.lat >= 0 ? '+' : ''}{coords.lat.toFixed(6)}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>GPS.Longitude</span>
-                          <span className="text-emerald-600 font-bold">{coords.lng >= 0 ? '+' : ''}{coords.lng.toFixed(6)}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="truncate">Image.Info</span>
-                          <span className="text-slate-600 font-bold">Injected ✔</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                {!image && <p className="text-center text-xs text-slate-400 font-bold uppercase tracking-widest pt-2">Select a photo to start</p>}
               </div>
-            </div>
-          </div>
-        </section>
 
-        <SectionHowTo />
-        <SectionBenefits />
-        
-        {/* Business Specific Section */}
-        <section className="max-w-7xl mx-auto px-4 py-24 border-t border-slate-200 mt-20">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl font-display font-bold text-slate-900">Use Cases for Local Businesses</h2>
-            <p className="text-slate-500 max-w-2xl mx-auto">Different industries leverage spatial metadata to dominate their specific local niches.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-3xl space-y-4 border-l-4 border-l-indigo-500 border border-slate-100 shadow-sm transition-transform hover:-translate-y-1">
-              <h4 className="text-xl font-bold text-slate-900">Real Estate Agents</h4>
-              <p className="text-sm text-slate-500 leading-relaxed">
-                Embed coordinates of listed properties directly into high-res photos. This helps home seekers finding listings through image search in specific neighborhoods.
-              </p>
+              <button 
+                onClick={() => {
+                  if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition((pos) => {
+                      const lat = pos.coords.latitude;
+                      const lng = pos.coords.longitude;
+                      setCoords({ lat, lng });
+                      handleLocationSelect(lat, lng);
+                    });
+                  } else {
+                    alert("Geolocation is not supported by this browser.");
+                  }
+                }}
+                className="w-full flex items-center justify-center gap-2 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-indigo-600 transition-all border border-slate-200 rounded-xl hover:border-indigo-400 bg-white shadow-sm hover:shadow-md"
+              >
+                <MapPin className="w-3 h-3" />
+                Auto-Detect Position
+              </button>
             </div>
-            <div className="bg-white p-8 rounded-3xl space-y-4 border-l-4 border-l-emerald-500 border border-slate-100 shadow-sm transition-transform hover:-translate-y-1">
-              <h4 className="text-xl font-bold text-slate-900">Service Contractors</h4>
-              <p className="text-sm text-slate-500 leading-relaxed">
-                Plumbers, electricians, and HVAC techs can geotag 'job site' photos to prove their service area coverage to Google's ranking algorithms.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-3xl space-y-4 border-l-4 border-l-amber-500 border border-slate-100 shadow-sm transition-transform hover:-translate-y-1">
-              <h4 className="text-xl font-bold text-slate-900">Retail & Restaurants</h4>
-              <p className="text-sm text-slate-500 leading-relaxed">
-                 Menu items and interior shots with embedded store coordinates increase the chances of appearing in 'food near me' visual searches.
-              </p>
-            </div>
-          </div>
-        </section>
 
-        <SectionFAQ />
-        
-        <Footer />
+            <div className="space-y-4">
+               <div className="space-y-1.5">
+                  <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Address Line 1 (Main & Short)</label>
+                  <input 
+                    type="text" 
+                    placeholder="e.g. Madhupur Gaon"
+                    value={addr1} 
+                    onChange={(e) => setAddr1(e.target.value)}
+                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
+                  />
+               </div>
+
+               <div className="space-y-1.5">
+                  <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Address Line 2 (Long)</label>
+                  <input 
+                    type="text" 
+                    placeholder="e.g. NH-15, Road Lalpool, Darrang"
+                    value={addr2} 
+                    onChange={(e) => setAddr2(e.target.value)}
+                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
+                  />
+               </div>
+
+               <div className="space-y-1.5">
+                  <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Date and Time</label>
+                  <input 
+                    type="datetime-local" 
+                    value={customDateTime} 
+                    onChange={(e) => setCustomDateTime(e.target.value)}
+                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-600 font-medium focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
+                  />
+               </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               <div className="space-y-1.5">
+                  <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Latitude</label>
+                  <input 
+                    type="number" 
+                    step="0.000001"
+                    placeholder="26.64770"
+                    value={coords.lat} 
+                    onChange={(e) => setCoords(c => ({ ...c, lat: parseFloat(e.target.value) || 0 }))}
+                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-indigo-600 font-mono font-bold focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
+                  />
+               </div>
+               <div className="space-y-1.5">
+                  <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest block">Longitude</label>
+                   <input 
+                    type="number" 
+                    step="0.000001"
+                    placeholder="92.16932"
+                    value={coords.lng} 
+                    onChange={(e) => setCoords(c => ({ ...c, lng: parseFloat(e.target.value) || 0 }))}
+                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-indigo-600 font-mono font-bold focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 transition-all shadow-sm"
+                  />
+               </div>
+            </div>
+
+            <button 
+              onClick={downloadGeotaggedImage}
+              disabled={!image || isProcessing}
+              className={`w-full py-5 rounded-2x font-bold text-lg flex items-center justify-center gap-3 transition-all ${
+                !image 
+                ? 'bg-slate-100 text-slate-400 cursor-not-allowed' 
+                : success 
+                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-100' 
+                  : 'bg-indigo-600 text-white hover:bg-slate-900 shadow-xl shadow-indigo-100 active:scale-[0.98]'
+              }`}
+              style={{ borderRadius: '1.25rem' }}
+            >
+              {isProcessing ? (
+                <div className="w-6 h-6 border-2 border-neutral-400 border-t-white rounded-full animate-spin" />
+              ) : success ? (
+                <>
+                  <Check className="w-6 h-6" />
+                  Successfully Geotagged
+                </>
+              ) : (
+                <>
+                  <Download className="w-6 h-6" />
+                  Geotag & Download Image
+                </>
+              )}
+            </button>
+
+            <AnimatePresence>
+              {success && (
+                <motion.div 
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="glass p-6 rounded-2xl border-emerald-500/20 bg-emerald-500/5 space-y-4 overflow-hidden"
+                >
+                  <div className="flex items-center gap-2 text-emerald-600 font-bold text-sm">
+                    <Check className="w-4 h-4" />
+                    Internal Metadata Verified
+                  </div>
+                  <div className="grid grid-cols-1 gap-2 text-[10px] font-mono text-slate-400 uppercase">
+                    <div className="flex justify-between">
+                      <span>GPS.Latitude</span>
+                      <span className="text-emerald-600 font-bold">{coords.lat >= 0 ? '+' : ''}{coords.lat.toFixed(6)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>GPS.Longitude</span>
+                      <span className="text-emerald-600 font-bold">{coords.lng >= 0 ? '+' : ''}{coords.lng.toFixed(6)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="truncate">Image.Info</span>
+                      <span className="text-slate-600 font-bold">Injected ✔</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
+    </section>
   );
 }
 
 function SectionHowTo() {
   const steps = [
-    { title: "Upload High-Res JPEG", text: "Import your professional business photos. Our engine supports high-resolution JPEG assets while maintaining 100% original quality.", icon: <ImageIcon /> },
-    { title: "Precision Mapping", text: "Use the live map or coordinates to pinpoint exact latitude and longitude for visual and digital verification.", icon: <MapPin /> },
-    { title: "EXIF Infrastructure", text: "Our tool injects data into the core EXIF headers, including GPS Version, LatitudeRef, and ImageDescription fields.", icon: <FileText /> },
-    { title: "Export SEO Assets", text: "Download your enhanced images, ready for Google Business Profile, Apple Maps, and local directory uploads.", icon: <Download /> },
+    { title: "Upload Photo", text: "Choose any photo from your computer or phone. Our tool supports JPG and JPEG formats.", icon: <ImageIcon /> },
+    { title: "Select Location", text: "Search for an address or click anywhere on the live map to get the exact GPS coordinates.", icon: <MapPin /> },
+    { title: "Apply GPS Tag", text: "One click injects the chosen longitude and latitude into your image's EXIF metadata.", icon: <FileText /> },
+    { title: "Download", text: "Save your new geotagged photo. The location is now permanently embedded in the file.", icon: <Download /> },
   ];
 
   return (
-    <section id="how-to" className="max-w-7xl mx-auto px-4 py-32 scroll-mt-24 border-t border-slate-100">
-      <div className="text-center space-y-6 mb-16">
-        <h2 className="text-5xl md:text-6xl font-display font-bold text-slate-900 tracking-tight">The 4-Step <span className="text-slate-400 italic font-medium">SEO Synthesis.</span></h2>
-        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium">A streamlined sequence engineered for absolute metadata accuracy and regional authority.</p>
+    <section id="how-to" className="max-w-7xl mx-auto px-4 py-16 scroll-mt-24 border-t border-slate-100">
+      <div className="text-center space-y-6 mb-12">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight">How to <span className="text-indigo-600 font-medium">Geotag Photos</span> Online</h2>
+        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium">Change image location in 4 simple steps with our free online tool.</p>
       </div>
-      <div className="grid md:grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {steps.map((step, i) => (
           <div key={i} className="relative group">
             <div className="space-y-8">
@@ -904,21 +810,21 @@ function SectionHowTo() {
 
 function SectionBenefits() {
   return (
-    <section id="benefits" className="max-w-7xl mx-auto px-4 py-32 border-t border-slate-200 overflow-hidden relative">
+    <section id="benefits" className="max-w-7xl mx-auto px-4 py-16 border-t border-slate-200 overflow-hidden relative">
       <div className="absolute top-1/2 left-0 w-64 h-64 bg-indigo-500/5 blur-[100px] rounded-full -ml-32" />
       
       <div className="grid lg:grid-cols-12 gap-20 items-center">
-        <div className="lg:col-span-12 text-center mb-16 space-y-4">
-           <h2 className="text-5xl md:text-7xl font-display font-bold text-slate-900 tracking-tighter">Why Search Algorithms <br/><span className="text-indigo-600">Trust Spatial Metadata.</span></h2>
-           <p className="text-xl text-slate-500 max-w-3xl mx-auto font-medium">Traditional SEO is dead. Spatial SEO is the new standard for local dominance.</p>
+        <div className="lg:col-span-12 text-center mb-8 space-y-4">
+           <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 tracking-tighter">Why Use <span className="text-indigo-600">GeoStamp Pro?</span></h2>
+           <p className="text-xl text-slate-500 max-w-3xl mx-auto font-medium">The most reliable way to add GPS to photos online without losing quality.</p>
         </div>
         
         <div className="lg:col-span-5 space-y-12">
           <div className="space-y-8">
             {[
-              { icon: <Search />, title: "Schema.org Synchronization", desc: "Our engine aligns photo metadata with your JSON-LD structural data, creating a multi-layered verification signal for search crawlers." },
-              { icon: <Shield />, title: "Authority & Anti-Spoofing", desc: "Raw EXIF data is harder to fake than on-page text. It serves as digital proof that your business is active at the claimed location." },
-              { icon: <BarChart3 />, title: "CTR & Trust Optimization", desc: "Photos with physical address watermarks help users verify you are 'the' local expert, leading to higher quality leads and conversions." }
+              { icon: <Globe />, title: "Global Asset Inventory", desc: "Organize your visual content by virtual coordinates. Build a geographic library that reflects your remote reach." },
+              { icon: <Shield />, title: "Precision Integrity", desc: "Our engine uses industry-standard EXIF v2.31, ensuring your metadata is recognized by all professional GIS and gallery software." },
+              { icon: <Zap />, title: "Remote Efficiency", desc: "Save thousands in travel costs. Update photo locations for property listings or site reports without leaving your office." }
             ].map((benefit, i) => (
               <div key={i} className="flex gap-8 group">
                 <div className="w-16 h-16 shrink-0 bg-white border border-slate-200 rounded-[1.5rem] flex items-center justify-center text-indigo-600 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500">
@@ -933,7 +839,7 @@ function SectionBenefits() {
           </div>
         </div>
 
-        <div className="lg:col-span-7 grid grid-cols-2 gap-6 scale-105">
+        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 scale-100 lg:scale-105">
           <div className="space-y-6">
              <div className="h-72 bg-gradient-to-br from-indigo-600 to-indigo-800 text-white rounded-[3rem] p-10 flex flex-col justify-end shadow-2xl shadow-indigo-200 transform hover:-rotate-1 transition-transform">
                 <span className="text-6xl font-display font-bold mb-4">4x</span>
@@ -968,21 +874,21 @@ function SectionBenefits() {
 
 function SectionStrategy() {
   return (
-    <section id="strategy" className="max-w-7xl mx-auto px-4 py-32 scroll-mt-24 bg-slate-900 rounded-[4rem] text-white overflow-hidden relative mb-24">
+    <section id="strategy" className="max-w-7xl mx-auto px-4 py-16 scroll-mt-24 bg-slate-900 rounded-[2.5rem] md:rounded-[4rem] text-white overflow-hidden relative mb-12">
        <div className="absolute top-0 right-0 w-[800px] h-full bg-indigo-600/10 blur-[150px] -mr-[400px] pointer-events-none" />
        
        <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-10">
              <div className="space-y-4">
-                <div className="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-[10px] font-black uppercase tracking-widest border border-indigo-500/20">The Local SEO Playbook</div>
-                <h2 className="text-5xl md:text-7xl font-display font-bold leading-[0.95] tracking-tighter">Build Regional <br/><span className="text-indigo-400 underline decoration-indigo-400/30 underline-offset-8">Spatial Trust.</span></h2>
+                <div className="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-[10px] font-black uppercase tracking-widest border border-indigo-500/20">Free Online Geotagger</div>
+                <h2 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold leading-[0.95] tracking-tighter">Pin any location <br/><span className="text-indigo-400 underline decoration-indigo-400/30 underline-offset-8">instantly.</span></h2>
              </div>
              
              <div className="grid gap-8">
                 {[
-                  { title: "Verifiable EXIF Headers", desc: "Google's algorithms analyze EXIF metadata to cross-reference your business address with physical location data." },
-                  { title: "User-Centric Visuals", desc: "Physical address watermarks act as a 'Seal of Authority' for local residents, increasing click-through rates by up to 35%." },
-                  { title: "Niche Spatial Targeting", desc: "Geotagging specific service area photos helps you rank for neighborhood-specific keywords (e.g., 'Plumber in [District]')." }
+                  { title: "Zero Travel Required", desc: "Instantly assign any photo to any latitude and longitude globally. Our engine handles the complex EXIF injection while you stay at your desk." },
+                  { title: "Pinpoint Global Accuracy", desc: "Use our high-precision map to select exactly where your visual data belongs. Ideal for documenting remote sites or property listings." },
+                  { title: "Virtual Workflow Integration", desc: "Designed for teams managing assets across multiple cities. Standardize your geotags across thousands of images in seconds." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
                      <div className="w-10 h-10 shrink-0 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-all">
@@ -1008,45 +914,44 @@ function SectionStrategy() {
                    </div>
                    <div className="text-[10px] font-black text-emerald-500">REAL-TIME DATA</div>
                 </div>
-                
-                <div className="space-y-8">
+                                <div className="space-y-8">
                    <div className="space-y-2">
                       <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-slate-400">
-                         <span>Visibility Boost</span>
-                         <span className="text-indigo-600">+82%</span>
+                         <span>Tagging Accuracy</span>
+                         <span className="text-indigo-600">99.9%</span>
                       </div>
                       <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
-                         <motion.div initial={{ width: 0 }} whileInView={{ width: '82%' }} className="h-full bg-indigo-600" />
+                         <motion.div initial={{ width: 0 }} whileInView={{ width: '99%' }} className="h-full bg-indigo-600" />
                       </div>
                    </div>
                    <div className="space-y-2">
                       <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-slate-400">
-                         <span>Local Map Rank</span>
-                         <span className="text-indigo-600">+4.2 Positions</span>
+                         <span>Travel Cost Saved</span>
+                         <span className="text-indigo-600">100%</span>
                       </div>
                       <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
-                         <motion.div initial={{ width: 0 }} whileInView={{ width: '70%' }} className="h-full bg-indigo-600" />
+                         <motion.div initial={{ width: 0 }} whileInView={{ width: '100%' }} className="h-full bg-indigo-600" />
                       </div>
                    </div>
                    <div className="space-y-2">
                       <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-slate-400">
-                         <span>GMB Engagement</span>
-                         <span className="text-indigo-600">+55%</span>
+                         <span>Processing Speed</span>
+                         <span className="text-indigo-600">&lt;2s / Image</span>
                       </div>
                       <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
-                         <motion.div initial={{ width: 0 }} whileInView={{ width: '55%' }} className="h-full bg-indigo-600" />
+                         <motion.div initial={{ width: 0 }} whileInView={{ width: '92%' }} className="h-full bg-indigo-600" />
                       </div>
                    </div>
                 </div>
 
                 <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
                    <p className="text-sm font-medium italic text-slate-500 leading-relaxed">
-                      "Since implementing spatial metadata across our 12 service locations, 
-                      our local organic traffic increased by 114% in just 3 months."
+                      "Managing 500+ remote properties used to be a geographic nightmare. 
+                      Now we verify and tag every listing from HQ in seconds."
                    </p>
                    <div className="mt-4 flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-slate-200" />
-                      <div className="text-[10px] font-black uppercase tracking-widest text-slate-900">Marcus Thorne — SEO Director @ Nexus Labs</div>
+                      <div className="text-[10px] font-black uppercase tracking-widest text-slate-900">Marcus Thorne — Operations @ Global Realty</div>
                    </div>
                 </div>
              </div>
@@ -1056,18 +961,57 @@ function SectionStrategy() {
   );
 }
 
-function SectionFAQ() {
-  const faqs = [
-    { q: "What is image geotagging?", a: "Image geotagging is the process of embedding GPS coordinates (Latitude and Longitude) into an image file's EXIF metadata. This tells computers and search engines exactly where the photo was taken." },
-    { q: "Does geotagging help SEO?", a: "Absoultely. For local businesses, geotagged photos provide 'proof of location' to search engines, helping you rank higher in local search results and map packs." },
-    { q: "Can I geotag existing photos?", a: "Yes! Our online tool allows you to upload any JPEG/JPG photo and add or modify its geotagging data instantly." },
-    { q: "Is this tool free to use?", a: "Yes, our core geotagging utility is 100% free for individual photos. We also offer professional guides for larger SEO campaigns." },
-    { q: "Does this work on mobile?", a: "Yes, our tool is fully responsive. You can upload photos directly from your phone's gallery and geotag them on the go." }
+function SectionUseCases() {
+  const cases = [
+    { 
+      title: "Remote Logistical Ops", 
+      desc: "Perfect for documenting global supply chain assets or job sites. Geotag your photos from the warehouse or field office to build a verifiable spatial database.",
+      border: "border-l-indigo-500"
+    },
+    { 
+      title: "Remote Property Mgmt", 
+      desc: "Assign high-res photos to specific units or parcels without site visits. Ideal for real estate portfolios spaning multiple continents.",
+      border: "border-l-emerald-500"
+    },
+    { 
+      title: "Data Correction", 
+      desc: "Fix incorrect GPS coordinates on historical assets. Rectify spatial errors in your image archives to ensure absolute data integrity.",
+      border: "border-l-amber-500"
+    }
   ];
 
   return (
-    <section id="faq" className="max-w-4xl mx-auto px-4 py-24 scroll-mt-24">
-      <h2 className="text-4xl font-display font-bold text-center mb-16 text-slate-900">Frequently Asked Questions</h2>
+    <section id="use-cases" className="max-w-7xl mx-auto px-4 py-12 border-t border-slate-200 mt-12 scroll-mt-24">
+      <div className="text-center mb-12 space-y-4">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight">Virtual Presence Use Cases</h2>
+        <p className="text-slate-500 max-w-2xl mx-auto font-medium">Empowering industries to manage geography through a digital-first spatial lens.</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {cases.map((c, i) => (
+          <div key={i} className={`bg-white p-8 rounded-3xl space-y-4 border-l-4 ${c.border} border border-slate-100 shadow-sm transition-transform hover:-translate-y-1`}>
+            <h4 className="text-xl font-bold text-slate-900">{c.title}</h4>
+            <p className="text-sm text-slate-500 leading-relaxed font-medium">
+              {c.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function SectionFAQ() {
+  const faqs = [
+    { q: "What is remote photo geotagging?", a: "It's the process of assigning GPS coordinates to an image file from a remote location. Instead of relying on a camera's built-in GPS at the time of the shot, you can manually set the location using map coordinates." },
+    { q: "Does this physically move the photo?", a: "No, it modifies the metadata (EXIF) inside the image file. This allows mapping software and databases to identify exactly where the subject of the photo is located on Earth." },
+    { q: "Can I geotag photos without visiting the place?", a: "Yes! That is the core purpose of GeoStamp Pro. You can search for any address or location on the map and pin your photo to that spot instantly." },
+    { q: "Is the metadata permanent?", a: "Yes. Once injected, the coordinates are embedded in the image headers. They will stay with the file wherever you upload it, unless you explicitly strip the metadata later." },
+    { q: "Does this affect image quality?", a: "Not at all. Our engine only modifies the metadata headers. The visual pixel data remains 100% untouched and original." }
+  ];
+
+  return (
+    <section id="faq" className="max-w-4xl mx-auto px-4 py-12 scroll-mt-24">
+      <h2 className="text-4xl font-display font-bold text-center mb-12 text-slate-900">Frequently Asked Questions</h2>
       <div className="space-y-4">
         {faqs.map((faq, i) => (
           <details key={i} className="group bg-white rounded-2xl overflow-hidden border border-slate-200 open:border-indigo-500 transition-all shadow-sm">
@@ -1089,18 +1033,18 @@ function SectionFAQ() {
 
 function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-400 py-24 rounded-t-[4rem] px-4 mt-24">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-16">
-        <div className="space-y-6 md:col-span-1">
+    <footer className="bg-slate-900 text-slate-400 py-12 rounded-t-[2.5rem] md:rounded-t-[4rem] px-4 mt-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
+        <div className="space-y-6 md:col-span-1 border-b border-white/5 pb-8 sm:border-0 sm:pb-0">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-110 transition-transform">
               <Globe className="text-white w-6 h-6" />
             </div>
-            <span className="text-xl font-display font-bold tracking-tight text-white">GeoTag<span className="text-indigo-600">Pro</span></span>
+            <span className="text-xl font-display font-bold tracking-tight text-white">GeoStamp<span className="text-indigo-600">Pro</span></span>
           </div>
           <p className="text-sm leading-relaxed">
-            Leading the spatial SEO revolution. Our metadata engine empowers businesses 
-            to reclaim their local authority through verifiable visual assets.
+            Eliminating the boundary between photo and place. Our remote tagging engine 
+            is the industry standard for virtual geographic data management.
           </p>
           <div className="flex gap-4">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
@@ -1143,8 +1087,8 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em]">
-        <p>© 2026 GeoTagPro SEO Engine. All Rights Reserved.</p>
+      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em]">
+        <p>© 2026 GeoStamp Pro Tool. All Rights Reserved.</p>
         <div className="flex gap-8">
            <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
            <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
@@ -1164,6 +1108,7 @@ export default function App() {
       <SectionHowTo />
       <SectionStrategy />
       <SectionBenefits />
+      <SectionUseCases />
       <SectionFAQ />
       <Footer />
     </div>
