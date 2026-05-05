@@ -1,0 +1,6 @@
+{
+  "name": "GeoTag SEO Pro",
+  "description": "Professional geotagging tool for local SEO optimization. Generate geolocation metadata for images and websites with a focus on search engine visibility.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": []
+}
