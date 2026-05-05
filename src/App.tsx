@@ -604,7 +604,7 @@ function GeotagTool() {
                  <MapUpdater center={[coords.lat, coords.lng]} />
                </MapContainer>
                <div className="absolute top-4 right-4 z-[1000] bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold text-indigo-600 border border-indigo-100 shadow-sm">
-                 LIVE PRECISION MAP
+                 LIVE MAP
                </div>
             </div>
 
@@ -731,7 +731,7 @@ function GeotagTool() {
               ) : (
                 <>
                   <Download className="w-6 h-6" />
-                  Geotag & Download Image
+                Download Photo
                 </>
               )}
             </button>
