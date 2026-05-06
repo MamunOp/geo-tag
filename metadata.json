@@ -1,6 +1,6 @@
 {
-  "name": "GeoStamp Pro | Remote Geotagging Engine",
-  "description": "The ultimate tool for virtual location tagging. Pin your photos to any GPS coordinate on Earth without leaving your desk. Perfect for remote work, property management, and data correction.",
+  "name": "GeoTag Photo",
+  "description": "Professional GPS map camera tool for geotagging photos. Add GPS coordinates, timestamps, and address data to any image instantly. Perfect for SEO, site documentation, and location verification.",
   "requestFramePermissions": [
     "geolocation"
   ]

@@ -108,8 +108,8 @@ function Header() {
             <Globe className="text-white w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div className="flex flex-col -space-y-1">
-            <span className="text-lg sm:text-xl font-display font-bold tracking-tight text-slate-900">GeoStamp<span className="text-indigo-600">Pro</span></span>
-            <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-slate-400">Free Geotagger</span>
+            <span className="text-lg sm:text-xl font-display font-bold tracking-tight text-slate-900">GeoTag<span className="text-indigo-600"> Photo</span></span>
+            <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-slate-400">GPS Map Camera</span>
           </div>
         </div>
         
@@ -139,14 +139,14 @@ function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[10px] font-black uppercase tracking-[0.2em] text-indigo-600">
             <Zap className="w-3 h-3 fill-current" />
-            100% Free Online Geotagging Tool
+            #1 Online GPS Map Camera Tool
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-bold text-slate-900 leading-[0.85] tracking-tighter">
-            Geotag Photos. <br/> <span className="text-indigo-600">Online & Fast.</span>
+            Geotag Photo. <br/> <span className="text-indigo-600">GPS Map Camera.</span>
           </h1>
           <p className="text-xl text-slate-500 max-w-3xl leading-relaxed font-medium">
-            Add GPS coordinates to any photo instantly. Select a location on the map and 
-            embed it into your image metadata. No downloads, no sign-ups, just free geotagging.
+            Add precise GPS coordinates, timestamps, and address data to any photo. 
+            The most powerful online GPS map camera for local SEO, fieldwork, and documentation.
           </p>
           <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
             <a href="#tool" className="px-10 py-5 bg-indigo-600 text-white rounded-2xl font-black uppercase tracking-widest text-xs flex items-center gap-3 hover:bg-slate-900 transition-all shadow-2xl shadow-indigo-500/20 active:scale-95">
@@ -580,8 +580,8 @@ function GeotagTool() {
           {/* Right Column: Controls & Metadata */}
           <div className="space-y-6">
             <div className="space-y-2 text-center lg:text-left">
-              <h2 className="text-4xl font-display font-bold text-slate-900 leading-tight">Edit GPS Data</h2>
-              <p className="text-slate-500 text-sm font-medium">Add locations and GPS tags to your photo.</p>
+              <h2 className="text-4xl font-display font-bold text-slate-900 leading-tight">GPS Map Camera Settings</h2>
+              <p className="text-slate-500 text-sm font-medium">Configure GPS location, date, and address for your photo.</p>
             </div>
 
             <div className="h-[280px] w-full rounded-2xl overflow-hidden border border-slate-200 relative shadow-inner">
@@ -783,8 +783,8 @@ function SectionHowTo() {
   return (
     <section id="how-to" className="max-w-7xl mx-auto px-4 py-16 scroll-mt-24 border-t border-slate-100">
       <div className="text-center space-y-6 mb-12">
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight">How to <span className="text-indigo-600 font-medium">Geotag Photos</span> Online</h2>
-        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium">Change image location in 4 simple steps with our free online tool.</p>
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight">How to <span className="text-indigo-600 font-medium">Geotag Photo</span> with GPS Map Camera</h2>
+        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium">Tag your photos with GPS coordinates and timestamps in seconds.</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {steps.map((step, i) => (
@@ -815,8 +815,8 @@ function SectionBenefits() {
       
       <div className="grid lg:grid-cols-12 gap-20 items-center">
         <div className="lg:col-span-12 text-center mb-8 space-y-4">
-           <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 tracking-tighter">Why Use <span className="text-indigo-600">GeoStamp Pro?</span></h2>
-           <p className="text-xl text-slate-500 max-w-3xl mx-auto font-medium">The most reliable way to add GPS to photos online without losing quality.</p>
+           <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 tracking-tighter">Professional <span className="text-indigo-600">GeoTag Photo</span> Engine</h2>
+           <p className="text-xl text-slate-500 max-w-3xl mx-auto font-medium">The industry-standard GPS map camera for online geotagging and EXIF management.</p>
         </div>
         
         <div className="lg:col-span-5 space-y-12">
@@ -1040,11 +1040,11 @@ function Footer() {
             <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-110 transition-transform">
               <Globe className="text-white w-6 h-6" />
             </div>
-            <span className="text-xl font-display font-bold tracking-tight text-white">GeoStamp<span className="text-indigo-600">Pro</span></span>
+            <span className="text-xl font-display font-bold tracking-tight text-white">GeoTag<span className="text-indigo-600"> Photo</span></span>
           </div>
           <p className="text-sm leading-relaxed">
-            Eliminating the boundary between photo and place. Our remote tagging engine 
-            is the industry standard for virtual geographic data management.
+            Leading the GPS map camera revolution. GeoTag Photo provides 
+            accurate location tagging for professionals around the globe.
           </p>
           <div className="flex gap-4">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
@@ -1088,7 +1088,7 @@ function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em]">
-        <p>© 2026 GeoStamp Pro Tool. All Rights Reserved.</p>
+        <p>© 2026 GeoTag Photo. All Rights Reserved.</p>
         <div className="flex gap-8">
            <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
            <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
