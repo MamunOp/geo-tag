@@ -105,11 +105,11 @@ function Header() {
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <div className="w-8 h-8 sm:w-10 sm:h-10 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-100 group-hover:scale-110 transition-transform">
-            <Globe className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+            <MapIcon className="text-white w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div className="flex flex-col -space-y-1">
             <span className="text-lg sm:text-xl font-display font-bold tracking-tight text-slate-900">GeoTag<span className="text-indigo-600"> Photo</span></span>
-            <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-slate-400">GPS Map Camera</span>
+            <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-slate-400">Online Geotagger</span>
           </div>
         </div>
         
@@ -135,26 +135,23 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-5xl space-y-8 text-center md:text-left"
+          className="max-w-5xl space-y-8 text-center mx-auto"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[10px] font-black uppercase tracking-[0.2em] text-indigo-600">
             <Zap className="w-3 h-3 fill-current" />
-            #1 Online GPS Map Camera Tool
+            100% Free Online Geotagging Tool
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-bold text-slate-900 leading-[0.85] tracking-tighter">
-            Geotag Photo. <br/> <span className="text-indigo-600">GPS Map Camera.</span>
+            Geotag Photo <br/> <span className="text-indigo-600">Online for Free.</span>
           </h1>
-          <p className="text-xl text-slate-500 max-w-3xl leading-relaxed font-medium">
-            Add precise GPS coordinates, timestamps, and address data to any photo. 
-            The most powerful online GPS map camera for local SEO, fieldwork, and documentation.
+          <p className="text-xl text-slate-500 max-w-3xl leading-relaxed font-medium mx-auto">
+            The easiest way to <strong>add GPS coordinates to photos</strong> online. 
+            Pin your images to any location on the map manually—no need to visit the place physically.
           </p>
-          <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
+          <div className="flex flex-wrap gap-4 pt-4 justify-center">
             <a href="#tool" className="px-10 py-5 bg-indigo-600 text-white rounded-2xl font-black uppercase tracking-widest text-xs flex items-center gap-3 hover:bg-slate-900 transition-all shadow-2xl shadow-indigo-500/20 active:scale-95">
               Launch Geotag Engine <ChevronRight className="w-4 h-4" />
             </a>
-            <button className="px-10 py-5 border border-slate-200 text-slate-600 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-slate-50 transition-all shadow-sm">
-              View SEO Blueprints
-            </button>
           </div>
         </motion.div>
       </div>
@@ -480,7 +477,7 @@ function GeotagTool() {
       if (fullAddress) {
         exifObj["0th"][piexif.ImageIFD.ImageDescription] = fullAddress;
       }
-      exifObj["0th"][piexif.ImageIFD.Software] = "GeoTag SEO Pro Tool";
+      exifObj["0th"][piexif.ImageIFD.Software] = "GeoTag Photo Pro Tool";
 
       const latDeg = toDegMinSec(coords.lat);
       const lngDeg = toDegMinSec(coords.lng);
@@ -580,8 +577,8 @@ function GeotagTool() {
           {/* Right Column: Controls & Metadata */}
           <div className="space-y-6">
             <div className="space-y-2 text-center lg:text-left">
-              <h2 className="text-4xl font-display font-bold text-slate-900 leading-tight">GPS Map Camera Settings</h2>
-              <p className="text-slate-500 text-sm font-medium">Configure GPS location, date, and address for your photo.</p>
+              <h2 className="text-4xl font-display font-bold text-slate-900 leading-tight">Geotag Your Photo</h2>
+              <p className="text-slate-500 text-sm font-medium">Select a location on the map to add GPS coordinates to your image.</p>
             </div>
 
             <div className="h-[280px] w-full rounded-2xl overflow-hidden border border-slate-200 relative shadow-inner">
@@ -774,27 +771,28 @@ function GeotagTool() {
 
 function SectionHowTo() {
   const steps = [
-    { title: "Upload Photo", text: "Choose any photo from your computer or phone. Our tool supports JPG and JPEG formats.", icon: <ImageIcon /> },
-    { title: "Select Location", text: "Search for an address or click anywhere on the live map to get the exact GPS coordinates.", icon: <MapPin /> },
-    { title: "Apply GPS Tag", text: "One click injects the chosen longitude and latitude into your image's EXIF metadata.", icon: <FileText /> },
-    { title: "Download", text: "Save your new geotagged photo. The location is now permanently embedded in the file.", icon: <Download /> },
+    { title: "Upload Your Photo", text: "Choose any JPG or JPEG image from your computer. Our online geotagger keeps your original quality.", icon: <ImageIcon /> },
+    { title: "Pick Map Location", text: "Search for any global address or manually click on the map to find exact longitude and latitude.", icon: <MapPin /> },
+    { title: "Add GPS Details", text: "Our tool embeds the precise GPS tags and timestamps into your photo's EXIF metadata automatically.", icon: <FileText /> },
+    { title: "Download Geotagged Image", text: "Save your photo with the new location data. Use it anywhere for verification or tracking.", icon: <Download /> },
   ];
 
   return (
     <section id="how-to" className="max-w-7xl mx-auto px-4 py-16 scroll-mt-24 border-t border-slate-100">
       <div className="text-center space-y-6 mb-12">
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight">How to <span className="text-indigo-600 font-medium">Geotag Photo</span> with GPS Map Camera</h2>
-        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium">Tag your photos with GPS coordinates and timestamps in seconds.</p>
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight text-center">How to <span className="text-indigo-600 font-medium">Geotag Photos Online</span></h2>
+        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium text-center">Follow these simple steps to add location data to your images manually.</p>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {steps.map((step, i) => (
-          <div key={i} className="relative group">
-            <div className="space-y-8">
-              <div className="w-20 h-20 bg-white border border-slate-200 rounded-[2rem] flex items-center justify-center text-indigo-600 shadow-sm group-hover:bg-indigo-600 group-hover:text-white group-hover:shadow-2xl group-hover:shadow-indigo-200 transition-all duration-500 transform group-hover:-translate-y-2">
+          <div key={i} className="relative group text-center flex flex-col items-center">
+            <div className="space-y-8 flex flex-col items-center">
+              <div className="w-20 h-20 bg-white border border-slate-200 rounded-[2rem] flex items-center justify-center text-indigo-600 shadow-sm group-hover:bg-indigo-600 group-hover:text-white group-hover:shadow-2xl group-hover:shadow-indigo-200 transition-all duration-500 transform group-hover:-translate-y-2 mx-auto">
                 {step.icon}
               </div>
               <div className="space-y-4">
-                <h3 className="text-xs font-black uppercase tracking-[0.25em] text-indigo-600 flex items-center gap-3">
+                <h3 className="text-xs font-black uppercase tracking-[0.25em] text-indigo-600 flex items-center justify-center gap-3">
                   <span className="w-8 h-px bg-indigo-200" /> Phase 0{i+1}
                 </h3>
                 <h4 className="text-2xl font-display font-bold text-slate-900 leading-tight">{step.title}</h4>
@@ -813,58 +811,29 @@ function SectionBenefits() {
     <section id="benefits" className="max-w-7xl mx-auto px-4 py-16 border-t border-slate-200 overflow-hidden relative">
       <div className="absolute top-1/2 left-0 w-64 h-64 bg-indigo-500/5 blur-[100px] rounded-full -ml-32" />
       
-      <div className="grid lg:grid-cols-12 gap-20 items-center">
+      <div className="grid lg:grid-cols-12 gap-20 items-center justify-center">
         <div className="lg:col-span-12 text-center mb-8 space-y-4">
-           <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 tracking-tighter">Professional <span className="text-indigo-600">GeoTag Photo</span> Engine</h2>
-           <p className="text-xl text-slate-500 max-w-3xl mx-auto font-medium">The industry-standard GPS map camera for online geotagging and EXIF management.</p>
+           <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 tracking-tighter">Why Choose <span className="text-indigo-600">GeoTag Photo Online?</span></h2>
+           <p className="text-xl text-slate-500 max-w-3xl mx-auto font-medium">The most reliable online tool for adding GPS details and editing photo location manually.</p>
         </div>
         
-        <div className="lg:col-span-5 space-y-12">
-          <div className="space-y-8">
+        <div className="lg:col-span-12 space-y-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
-              { icon: <Globe />, title: "Global Asset Inventory", desc: "Organize your visual content by virtual coordinates. Build a geographic library that reflects your remote reach." },
-              { icon: <Shield />, title: "Precision Integrity", desc: "Our engine uses industry-standard EXIF v2.31, ensuring your metadata is recognized by all professional GIS and gallery software." },
+              { icon: <MapIcon />, title: "Global Asset Inventory", desc: "Organize your visual content by virtual coordinates. Build a geographic library that reflects your remote reach." },
+              { icon: <Shield />, title: "Precision Integrity", desc: "Our engine uses industry-standard EXIF v2.31, ensuring your metadata is recognized by professional GIS software." },
               { icon: <Zap />, title: "Remote Efficiency", desc: "Save thousands in travel costs. Update photo locations for property listings or site reports without leaving your office." }
             ].map((benefit, i) => (
-              <div key={i} className="flex gap-8 group">
+              <div key={i} className="flex flex-col items-center gap-6 group">
                 <div className="w-16 h-16 shrink-0 bg-white border border-slate-200 rounded-[1.5rem] flex items-center justify-center text-indigo-600 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500">
                   {benefit.icon}
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors tracking-tight">{benefit.title}</h4>
-                  <p className="text-base text-slate-500 leading-relaxed font-medium">{benefit.desc}</p>
+                  <h3 className="text-xl font-display font-bold text-slate-900 transition-colors group-hover:text-indigo-600 tracking-tight">{benefit.title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed font-medium">{benefit.desc}</p>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 scale-100 lg:scale-105">
-          <div className="space-y-6">
-             <div className="h-72 bg-gradient-to-br from-indigo-600 to-indigo-800 text-white rounded-[3rem] p-10 flex flex-col justify-end shadow-2xl shadow-indigo-200 transform hover:-rotate-1 transition-transform">
-                <span className="text-6xl font-display font-bold mb-4">4x</span>
-                <p className="text-sm font-black uppercase tracking-widest opacity-80">Local Keyword Authority Lift</p>
-             </div>
-             <div className="h-56 bg-white border border-slate-200 rounded-[3rem] p-10 flex flex-col justify-center gap-4 hover:shadow-xl transition-all">
-                <div className="flex gap-1.5">
-                   {[1,2,3,4,5].map(s => <div key={s} className="w-full h-1 bg-indigo-600 rounded-full opacity-20" />)}
-                </div>
-                <p className="text-lg font-bold text-slate-900 leading-tight">Spatial Integrity Index: Platinum</p>
-                <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">Algorithm Preference: High</p>
-             </div>
-          </div>
-          <div className="pt-16 space-y-6">
-             <div className="h-56 bg-slate-900 text-white rounded-[3rem] p-10 flex flex-col justify-center items-center text-center group">
-                <Globe className="w-12 h-12 text-indigo-400 group-hover:scale-110 transition-transform" />
-                <p className="mt-4 text-xs font-black uppercase tracking-widest opacity-60">Global EXIF Standard v2.31</p>
-             </div>
-             <div className="h-72 bg-white border border-slate-200 rounded-[3rem] p-10 flex flex-col justify-end bg-gradient-to-tr from-slate-50 to-transparent hover:shadow-xl transition-all">
-                <div className="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 mb-6">
-                   <Zap className="w-6 h-6" />
-                </div>
-                <h4 className="text-2xl font-bold text-slate-900 leading-none mb-3">Structured Sync</h4>
-                <p className="text-sm text-slate-500 font-medium">Automated alignment with professional JSON-LD local constructs.</p>
-             </div>
           </div>
         </div>
       </div>
@@ -877,83 +846,29 @@ function SectionStrategy() {
     <section id="strategy" className="max-w-7xl mx-auto px-4 py-16 scroll-mt-24 bg-slate-900 rounded-[2.5rem] md:rounded-[4rem] text-white overflow-hidden relative mb-12">
        <div className="absolute top-0 right-0 w-[800px] h-full bg-indigo-600/10 blur-[150px] -mr-[400px] pointer-events-none" />
        
-       <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-10">
+       <div className="grid lg:grid-cols-1 gap-20 items-center text-center">
+          <div className="space-y-10 max-w-4xl mx-auto">
              <div className="space-y-4">
                 <div className="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-[10px] font-black uppercase tracking-widest border border-indigo-500/20">Free Online Geotagger</div>
-                <h2 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold leading-[0.95] tracking-tighter">Pin any location <br/><span className="text-indigo-400 underline decoration-indigo-400/30 underline-offset-8">instantly.</span></h2>
+                <h2 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold leading-[0.95] tracking-tighter">Geotag Photo <br/><span className="text-indigo-400 underline decoration-indigo-400/30 underline-offset-8">Online Instantly.</span></h2>
              </div>
              
-             <div className="grid gap-8">
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 {[
-                  { title: "Zero Travel Required", desc: "Instantly assign any photo to any latitude and longitude globally. Our engine handles the complex EXIF injection while you stay at your desk." },
-                  { title: "Pinpoint Global Accuracy", desc: "Use our high-precision map to select exactly where your visual data belongs. Ideal for documenting remote sites or property listings." },
-                  { title: "Virtual Workflow Integration", desc: "Designed for teams managing assets across multiple cities. Standardize your geotags across thousands of images in seconds." }
+                  { title: "Add GPS from Anywhere", desc: "Instantly assign any photo to any latitude and longitude globally without travel." },
+                  { title: "Edit Photo Location Manually", desc: "Use our high-precision map to select exactly where your visual data belongs." },
+                  { title: "Professional Metadata Tool", desc: "Standardize your geotags across thousands of images in seconds." }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-6 group">
+                  <div key={i} className="flex flex-col items-center gap-6 group">
                      <div className="w-10 h-10 shrink-0 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                        <Check className="w-5 h-5" />
+                        {i === 0 ? <Globe className="w-5 h-5" /> : i === 1 ? <MapPin className="w-5 h-5" /> : <BarChart3 className="w-5 h-5" />}
                      </div>
-                     <div className="space-y-1">
-                        <h4 className="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">{item.title}</h4>
-                        <p className="text-slate-400 leading-relaxed">{item.desc}</p>
+                     <div className="space-y-2">
+                        <h4 className="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors uppercase tracking-tight">{item.title}</h4>
+                        <p className="text-sm text-slate-400 leading-relaxed font-medium">{item.desc}</p>
                      </div>
                   </div>
                 ))}
-             </div>
-          </div>
-
-          <div className="relative">
-             <div className="bg-white rounded-[3rem] p-10 shadow-huge text-slate-900 space-y-8 transform lg:rotate-2 hover:rotate-0 transition-transform duration-700">
-                <div className="flex items-center justify-between border-b pb-6">
-                   <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white">
-                         <BarChart3 className="w-5 h-5" />
-                      </div>
-                      <span className="font-black uppercase tracking-widest text-[10px]">Impact Report</span>
-                   </div>
-                   <div className="text-[10px] font-black text-emerald-500">REAL-TIME DATA</div>
-                </div>
-                                <div className="space-y-8">
-                   <div className="space-y-2">
-                      <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-slate-400">
-                         <span>Tagging Accuracy</span>
-                         <span className="text-indigo-600">99.9%</span>
-                      </div>
-                      <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
-                         <motion.div initial={{ width: 0 }} whileInView={{ width: '99%' }} className="h-full bg-indigo-600" />
-                      </div>
-                   </div>
-                   <div className="space-y-2">
-                      <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-slate-400">
-                         <span>Travel Cost Saved</span>
-                         <span className="text-indigo-600">100%</span>
-                      </div>
-                      <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
-                         <motion.div initial={{ width: 0 }} whileInView={{ width: '100%' }} className="h-full bg-indigo-600" />
-                      </div>
-                   </div>
-                   <div className="space-y-2">
-                      <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-slate-400">
-                         <span>Processing Speed</span>
-                         <span className="text-indigo-600">&lt;2s / Image</span>
-                      </div>
-                      <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
-                         <motion.div initial={{ width: 0 }} whileInView={{ width: '92%' }} className="h-full bg-indigo-600" />
-                      </div>
-                   </div>
-                </div>
-
-                <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
-                   <p className="text-sm font-medium italic text-slate-500 leading-relaxed">
-                      "Managing 500+ remote properties used to be a geographic nightmare. 
-                      Now we verify and tag every listing from HQ in seconds."
-                   </p>
-                   <div className="mt-4 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-slate-200" />
-                      <div className="text-[10px] font-black uppercase tracking-widest text-slate-900">Marcus Thorne — Operations @ Global Realty</div>
-                   </div>
-                </div>
              </div>
           </div>
        </div>
@@ -1000,7 +915,72 @@ function SectionUseCases() {
   );
 }
 
+function SectionSEOContent() {
+  return (
+    <section className="max-w-4xl mx-auto px-4 py-24 border-t border-slate-100">
+      <div className="prose prose-slate max-w-none">
+        <h2 className="text-3xl font-display font-bold text-slate-900 mb-8 text-center">The Ultimate Guide to Geotagging Photos Online: Why and How</h2>
+        
+        <div className="space-y-8 text-slate-600 leading-relaxed text-justify">
+          <p>
+            In today's digital era, geographic data attached to visual content has become more than just a novelty—it is a critical requirement for businesses, field researchers, and digital enthusiasts alike. <strong>GeoTag Photo Online</strong> offers a streamlined, professional-grade solution to <strong>add GPS coordinates to images</strong> manually, ensuring your photos carry precise location data regardless of where they were captured.
+          </p>
+
+          <h3 className="text-xl font-bold text-slate-900 text-center">What is Photo Geotagging?</h3>
+          <p>
+            Geotagging is the process of embedding geographic information—specifically latitude and longitude coordinates—into a file's metadata, typically within the EXIF (Exchangeable Image File Format) data header. When you use an <strong>online geotagger</strong> tool like ours, you are manually injecting these digital "stamps" into your photo. This allows software, maps, and search engines to identify exactly where a photo represents on the globe.
+          </p>
+
+          <h3 className="text-xl font-bold text-slate-900 text-center">Why Use a Manual Online Geotagger?</h3>
+          <p>
+            While many modern smartphones and cameras come equipped with built-in GPS, they are not always reliable. Signal interference, privacy settings, or using older legacy equipment can result in photos without location data. Furthermore, many professionals—such as site inspectors, property managers, and remote researchers—often need to <strong>edit photo location manually</strong> for documentation purposes or to correct errors. Our tool allows you to <strong>geotag photos online for free</strong> without ever needing to visit the physical location again.
+          </p>
+
+          <h3 className="text-xl font-bold text-slate-900 text-center">The Benefits of Geotagged Photos for Professionals</h3>
+          <ul className="list-disc space-y-4 max-w-2xl mx-auto pl-6">
+            <li><strong>Site Documentation & Verification:</strong> Civil engineers and contractors use geotagging to prove that specific construction milestones were reached at exact project sites, providing a verifiable digital trail.</li>
+            <li><strong>Environmental Research:</strong> Scientists tracking changes in terrain or wildlife patterns rely on <strong>image geotagging tools</strong> to map their data points accurately over time.</li>
+            <li><strong>Real Estate & Property Management:</strong> Managing thousands of property listings across different cities is simplified when every photo is sorted by its virtual geographic coordinates.</li>
+            <li><strong>Asset Management:</strong> Insurance adjusters and logistics teams use GPS-tagged photos to log the state and location of high-value assets remotely.</li>
+          </ul>
+
+          <h3 className="text-xl font-bold text-slate-900 text-center">How Our Image Geotagging Tool Works</h3>
+          <p>
+            Our engine is designed for both speed and technical precision. When you upload a JPG or JPEG, our system parses the original EXIF structure. By selecting a location on our high-precision map, you generate a set of coordinates that our tool then "injects" back into the 0th and GPS IFDs of the image file. We use industry-standard EXIF v2.31, which is the same standard used by professional DSLR cameras, ensuring compatibility with all major operating systems and GIS software.
+          </p>
+
+          <h3 className="text-xl font-bold text-slate-900 text-center">Manual Geotagging vs. GPS Map Camera Apps</h3>
+          <p>
+            Many mobile apps function as a "GPS Map Camera," which captures location data in real-time as you take the photo. However, these are limited by your physical presence. <strong>GeoTag Photo Online</strong> is different. It is a <strong>manual geotagging</strong> engine designed for the desktop and mobile web, allowing you to back-fill or correct location data for any image in your library. This "Virtual Mapping" capability is essential for operations where the photographer might have been unable to sync a GPS signal at the moment of capture.
+          </p>
+
+          <h3 className="text-xl font-bold text-slate-900 text-center">Technical Details: What Data is Added?</h3>
+          <p>
+            When you process an image through our tool, several key metadata fields are updated:
+          </p>
+          <ul className="list-disc space-y-2 max-w-2xl mx-auto pl-6 italic">
+            <li>GPSLatitude & GPSLongitude (Standard Decimal Formats)</li>
+            <li>GPSLatitudeRef & GPSLongitudeRef (North/South, East/West Indicators)</li>
+            <li>GPSTimeStamp (Synchronized with the mapping event)</li>
+            <li>ImageDescription (Often populated with the reverse-geocoded physical address)</li>
+          </ul>
+
+          <h3 className="text-xl font-bold text-slate-900 text-center">Start Adding GPS to Photos Today</h3>
+          <p>
+            Whether you are looking to <strong>add GPS coordinates to photos</strong> for personal organization or professional compliance, GeoTag Photo is the standard. It is fast, requires no software installation, and is completely free to use. Simply upload, pin, and download. Your data security is our priority; all processing happens momentarily, and files are not stored permanently on our servers, ensuring your site documentation remains private.
+          </p>
+          
+          <div className="pt-8 border-t border-slate-100 italic text-sm text-slate-400 text-center">
+            Keywords: geotag photo online, add gps to photo, online geotagger, manual geotagging, edit photo location online, image geotagging tool, free gps tagger, EXIF location editor.
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function SectionFAQ() {
+
   const faqs = [
     { q: "What is remote photo geotagging?", a: "It's the process of assigning GPS coordinates to an image file from a remote location. Instead of relying on a camera's built-in GPS at the time of the shot, you can manually set the location using map coordinates." },
     { q: "Does this physically move the photo?", a: "No, it modifies the metadata (EXIF) inside the image file. This allows mapping software and databases to identify exactly where the subject of the photo is located on Earth." },
@@ -1034,19 +1014,22 @@ function SectionFAQ() {
 function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-400 py-12 rounded-t-[2.5rem] md:rounded-t-[4rem] px-4 mt-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
-        <div className="space-y-6 md:col-span-1 border-b border-white/5 pb-8 sm:border-0 sm:pb-0">
-          <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-12 text-center">
+        <div className="space-y-6 max-w-sm mx-auto md:mx-0">
+          <div className="flex items-center justify-center md:justify-start gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-110 transition-transform">
-              <Globe className="text-white w-6 h-6" />
+              <MapIcon className="text-white w-6 h-6" />
             </div>
             <span className="text-xl font-display font-bold tracking-tight text-white">GeoTag<span className="text-indigo-600"> Photo</span></span>
           </div>
           <p className="text-sm leading-relaxed">
-            Leading the GPS map camera revolution. GeoTag Photo provides 
-            accurate location tagging for professionals around the globe.
+            The #1 tool for manual photo geotagging. Add GPS coordinates to any photo online for free. 
+            Trusted by field workers and remote managers worldwide.
           </p>
-          <div className="flex gap-4">
+          <div className="text-indigo-400 font-bold text-xs uppercase tracking-widest">
+            A tool of ODS PVT LTD
+          </div>
+          <div className="flex justify-center md:justify-start gap-4">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
                <Globe className="w-4 h-4" />
             </div>
@@ -1056,43 +1039,12 @@ function Footer() {
           </div>
         </div>
         
-        <div>
-          <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em] mb-8">Spatial Tools</h4>
-          <ul className="space-y-4 text-sm font-medium">
-            <li><a href="#tool" className="hover:text-white transition-colors">EXIF Injector</a></li>
-            <li><a href="#tool" className="hover:text-white transition-colors">GPS Watermark Engine</a></li>
-            <li><a href="#tool" className="hover:text-white transition-colors">Bulk Metadata Editor</a></li>
-            <li><a href="#tool" className="hover:text-white transition-colors">Map Sync Utility</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em] mb-8">SEO Resources</h4>
-          <ul className="space-y-4 text-sm font-medium">
-            <li><a href="#strategy" className="hover:text-white transition-colors">Local SEO Guide</a></li>
-            <li><a href="#benefits" className="hover:text-white transition-colors">Algorithm Studies</a></li>
-            <li><a href="#how-to" className="hover:text-white transition-colors">Technical EXIF Documentation</a></li>
-            <li><a href="#faq" className="hover:text-white transition-colors">Support Center</a></li>
-          </ul>
-        </div>
-        
-        <div className="space-y-6">
-          <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em] mb-8">Regional Authority</h4>
-          <p className="text-xs italic leading-relaxed">
-            Currently processing spatial data for over 18,000 distinct ZIP codes worldwide.
-          </p>
-          <div className="p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl">
-             <div className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-1">Status Report</div>
-             <div className="text-xs text-white font-bold">Systems Operational: 99.9% Uptime</div>
-          </div>
-        </div>
-      </div>
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em]">
-        <p>© 2026 GeoTag Photo. All Rights Reserved.</p>
-        <div className="flex gap-8">
-           <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
-           <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
-           <span className="hover:text-white transition-colors cursor-pointer">Sitemap</span>
+        <div className="text-[10px] font-black uppercase tracking-[0.2em] space-y-4 mx-auto md:mx-0">
+           <p>© 2026 GeoTag Photo. All Rights Reserved.</p>
+           <div className="flex gap-8 justify-center md:justify-end">
+              <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
+              <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
+           </div>
         </div>
       </div>
     </footer>
@@ -1110,6 +1062,7 @@ export default function App() {
       <SectionBenefits />
       <SectionUseCases />
       <SectionFAQ />
+      <SectionSEOContent />
       <Footer />
     </div>
   );

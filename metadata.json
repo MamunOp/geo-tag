@@ -1,6 +1,6 @@
 {
   "name": "GeoTag Photo",
-  "description": "Professional GPS map camera tool for geotagging photos. Add GPS coordinates, timestamps, and address data to any image instantly. Perfect for SEO, site documentation, and location verification.",
+  "description": "Professional GPS map camera tool for geotagging photos. Add GPS coordinates, timestamps, and address data to any image instantly. Perfect for site documentation, remote field work, and location verification.",
   "requestFramePermissions": [
     "geolocation"
   ]
